@@ -1,0 +1,67 @@
+/* About.module.css */
+.section {
+  background: #f4f6f9;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-family: 'Roboto', sans-serif;
+  color: #222;
+  text-align: center;
+  position: relative;
+}
+
+.container {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.title {
+  font-family: 'Merriweather', serif;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #1a3d7c;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.underline {
+  display: block;
+  width: 0;
+  height: 3px;
+  background: #1a3d7c;
+  margin: 0.5rem auto 0;
+}
+
+.bioLine {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  color: #333;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.highlight {
+  color: #2575fc;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.highlight:hover {
+  color: #ff9900;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 1rem;
+  }
+  .title {
+    font-size: 2.2rem;
+  }
+  .bioLine {
+    font-size: 1rem;
+  }
+}

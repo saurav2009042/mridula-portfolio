@@ -1,0 +1,261 @@
+/* Section styling */
+.section {
+  background: #f4f6f9;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-family: 'Roboto', sans-serif;
+  color: #222;
+  text-align: center;
+  position: relative;
+}
+
+.fadeInSection {
+  animation: sectionFadeIn 0.5s ease forwards;
+}
+
+@keyframes sectionFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Main title */
+.title {
+  font-family: 'Merriweather', serif;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #1a3d7c;
+  display: inline-block;
+  text-align: center;
+  letter-spacing: 1px;
+  position: relative;
+}
+
+/* Animated underline for header */
+.title .underline {
+  display: block;
+  width: 0;
+  height: 3px;
+  background: #1a3d7c;
+  margin: 0.5rem auto 0;
+  transition: width 0.8s ease;
+}
+
+/* Subsection title */
+.subsectionTitle {
+  font-family: 'Merriweather', serif;
+  font-size: 2rem;
+  color: #1a3d7c;
+  margin: 1.5rem 0 1rem 0;
+  text-align: center;
+}
+
+/* Search bar */
+.searchBar {
+  display: block;
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto 2rem auto;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Projects/Services list */
+.projectsList {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 2rem auto;
+  max-width: 80%;
+}
+
+/* Card-like item */
+.projectItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1rem 1.2rem;
+  margin-bottom: 0.8rem;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.projectItem:hover {
+  background: #f0f4fc;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+}
+
+/* Project info */
+.projectInfo {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Project title */
+.projectTitle {
+  font-weight: 600;
+  color: #1a3d7c;
+  line-height: 1.3;
+}
+
+/* Type tag */
+.tag {
+  display: inline-block;
+  background-color: #1a3d7c;
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+/* Info icon for bullets */
+.infoIcon {
+  color: #2575fc;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.infoIcon:hover {
+  transform: scale(1.2);
+}
+
+/* Bullets under item */
+.bulletsList {
+  display: block;
+  list-style: none; /* remove default bullets */
+  padding-left: 1.5rem; /* indentation */
+  margin-top: 0.5rem;
+}
+
+.bulletsList li {
+  position: relative;
+  padding-left: 1.2rem; /* space for custom bullet */
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  color: #555; /* slightly darker for readability */
+}
+
+.bulletsList li::before {
+  content: '•'; /* custom bullet */
+  position: absolute;
+  left: 0;
+  color: #2575fc; /* blue shade to match highlight/tag */
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+/* Event/year */
+.projectYear {
+  background-color: #1a3d7c;
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+
+/* Highlighted search term */
+.highlight {
+  color: #2575fc;
+  font-weight: 600;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.highlight:hover {
+  color: #2575fc;
+  transform: scale(1.05);
+}
+
+/* Modal styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000; /* increase to ensure top-most */
+}
+
+.modalContent {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%;
+  min-height: 100px; /* ensures content box is visible */
+  text-align: left;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 10001; /* above overlay */
+}
+
+
+.modalContent h4 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #1a3d7c;
+}
+
+.closeBtn {
+  margin-top: 1rem;
+  background: #2575fc;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.closeBtn:hover {
+  background: #1a3d7c;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .section {
+    padding: 3rem 1rem;
+  }
+  .title {
+    font-size: 2.2rem;
+  }
+  .subsectionTitle {
+    font-size: 1.5rem;
+  }
+  .projectTitle {
+    font-size: 0.95rem;
+  }
+  .tag {
+    font-size: 0.7rem;
+  }
+  .projectYear {
+    font-size: 0.7rem;
+  }
+  .infoIcon {
+    font-size: 0.9rem;
+  }
+  .modalContent {
+    padding: 1rem 1.5rem;
+  }
+  .closeBtn {
+    width: 100%;
+  }
+}

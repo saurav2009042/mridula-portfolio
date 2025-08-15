@@ -1,0 +1,54 @@
+/* Global */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+    background: #f9f9f9;
+    color: #333;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+  
+  /* Navigation */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+  }
+  nav a {
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    transition: 0.3s;
+  }
+  nav a:hover {
+    background: rgba(37, 117, 252, 0.2);
+  }
+  
+  /* Responsive publications grid for wider screens */
+  @media (min-width: 768px) {
+    .publications-section .publication-card {
+      grid-template-columns: 2fr 1fr; /* content and PDF link */
+      align-items: center;
+    }
+  }
+  
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 2rem 0;
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 5rem;
+  }
+  

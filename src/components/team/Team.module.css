@@ -1,0 +1,109 @@
+.teamSection {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-family: 'Roboto', sans-serif;
+  color: #222;
+  background: #fefefe;
+  text-align: center; /* center headers */
+}
+
+.teamSection h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  color: #1a3b6c;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.teamSection h2::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 3px;
+  background: #1a3b6c;
+  margin: 8px auto 0;
+  transition: width 0.5s ease;
+}
+
+.teamSection h2:hover::after {
+  width: 60px;
+}
+
+/* FLEXBOX GRID */
+/* Team.module.css */
+.teamGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: flex-start; /* ensures top alignment */
+  margin-bottom: 4rem;
+}
+
+.teamCard {
+  flex: 0 1 320px; /* width similar to publications */
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.teamCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.cardImgContainer {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #1a3b6c;
+  margin-bottom: 1rem;
+}
+
+.cardImgContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.teamCard h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+  color: #1a3b6c;
+}
+
+.role {
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 0.2rem;
+}
+
+.period {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .teamSection h2 {
+    font-size: 2.2rem;
+  }
+  .cardImgContainer {
+    width: 100px;
+    height: 100px;
+  }
+  .teamCard {
+    flex: 1 1 90%; /* nearly full width on mobile */
+  }
+}
