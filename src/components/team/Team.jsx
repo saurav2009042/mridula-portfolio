@@ -1,80 +1,76 @@
-import { gsap } from "gsap";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { alumni, teamMembers } from "../../data/teamData";
 import styles from "./Team.module.css";
 
-export default function Team() {
-  const teamRef = useRef(null);
+const Team = () => {
+  const [titleVisible, setTitleVisible] = useState(false);
+  const [subTitleVisible, setSubTitleVisible] = useState(false);
+  const [cardsVisible, setCardsVisible] = useState(false);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      const images = teamRef.current.querySelectorAll("img");
-      let loadedCount = 0;
-  
-      // Declare this first
-      const animateCards = () => {
-        gsap.from(`.${styles.teamSection} h2`, {
-          y: 40,
-          scale: 0.9,
-          opacity: 0,
-          duration: 1.2,
-          stagger: 0.3,
-          ease: "back.out(1.7)"
-        });
-  
-        gsap.from(`.${styles.teamCard}`, {
-          y: 30,
-          opacity: 0,
-          duration: 0.8,
-          stagger: 0.2,
-          ease: "power3.out"
-        });
-      };
-  
-      const checkAllLoaded = () => {
-        loadedCount++;
-        if (loadedCount === images.length) {
-          animateCards();
-        }
-      };
-  
-      images.forEach((img) => {
-        if (img.complete) {
-          checkAllLoaded();
-        } else {
-          img.addEventListener("load", checkAllLoaded);
-        }
-      });
-  
-      // In case there are no images
-      if (images.length === 0) animateCards();
-    }, teamRef);
-  
-    return () => ctx.revert();
-  }, []);
-  
+    const titleTimer = setTimeout(() => setTitleVisible(true), 200);
+    const subTitleTimer = setTimeout(() => setSubTitleVisible(true), 700);
+    const cardsTimer = setTimeout(() => setCardsVisible(true), 1200);
 
-  const renderCards = (members) => (
-    <div className={styles.teamGrid}>
-      {members.map((m, i) => (
-        <div key={i} className={styles.teamCard}>
-          <div className={styles.cardImgContainer}>
-            <img src={m.img} alt={m.name} />
+    return () => {
+      clearTimeout(titleTimer);
+      clearTimeout(subTitleTimer);
+      clearTimeout(cardsTimer);
+    };
+  }, []);
+
+  const renderSection = (heading, members) => (
+    <>
+      <h3
+        className={`${styles.subTitle} ${subTitleVisible ? styles.visible : ""}`}
+      >
+        {heading}
+      </h3>
+  
+      <div className={styles.grid}>
+        {members.map((member, index) => (
+          <div
+            key={index}
+            className={`${styles.card} ${cardsVisible ? styles.cardVisible : ""}`}
+            style={{ "--delay": `${index * 120}ms` }}
+          >
+            <img
+              src={member.img || "/images/default-avatar.png"}
+              alt={member.name || "Team member"}
+              className={styles.image}
+              onError={(e) => {
+                e.target.onerror = null;
+                e.target.src = "/images/default-avatar.png";
+              }}
+            />
+            <div className={styles.info}>
+              <h3 className={styles.name}>{member.name}</h3>
+              <p className={styles.role}>{member.role}</p>
+              <p className={styles.period}>{member.period}</p>
+            </div>
           </div>
-          <h3>{m.name}</h3>
-          <p className={styles.role}>{m.role}</p>
-          <p className={styles.period}>{m.period}</p>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    </>
   );
+  
 
   return (
-    <section className={styles.teamSection} id="team" ref={teamRef}>
-      <h2>Team</h2>
-      {renderCards(teamMembers)}
-      <h2>Alumni</h2>
-      {renderCards(alumni)}
+    <section id="team" className={styles.teamSection}>
+      <h2 className={`${styles.title} ${titleVisible ? styles.visible : ""}`}>
+        Team
+        <span
+          className={`${styles.underline} ${titleVisible ? styles.visible : ""}`}
+        ></span>
+      </h2>
+
+      {/* Current Members */}
+      {renderSection("Current Members", teamMembers)}
+
+      {/* Alumni */}
+      {renderSection("Alumni", alumni)}
     </section>
   );
-}
+};
+
+export default Team;

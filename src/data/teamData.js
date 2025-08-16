@@ -1,12 +1,13 @@
 import AneetImg from "../assets/aneet.jpg";
 import ArslanImg from "../assets/arslan.jpeg";
+import AvatarImg from "../assets/avatar.jpg";
 import DiveshImg from "../assets/divesh.jpeg";
 import GirijaImg from "../assets/girija.jpeg";
 import HossamImg from "../assets/hossam.jpeg";
 import JishithaImg from "../assets/jishitha.jpeg";
 import MadhurimaImg from "../assets/madhurima.jpeg";
 import MihirrajImg from "../assets/mihirraj.jpeg";
-import { default as NiklasImg, default as TimImg } from "../assets/tim.jpeg";
+import TimImg from "../assets/tim.jpeg";
 import UsaidImg from "../assets/usaid.jpeg";
 
 export const teamMembers = [
@@ -22,6 +23,6 @@ export const alumni = [
     { name: 'Mihirraj Dixit', role: 'Student Researcher', period: 'December 2023 - June 2024', img: MihirrajImg },
     { name: 'Girija Mohan', role: 'Student Researcher', period: 'February 2024 - September 2024', img: GirijaImg },
     { name: 'Tim Nagel', role: 'BSc', period: 'September 2023 - February 2024', img: TimImg },
-    { name: 'Niklas Lohmann', role: 'BSc', period: 'October 2023 - March 2024', img: NiklasImg },
+    { name: 'Niklas Lohmann', role: 'BSc', period: 'October 2023 - March 2024', img: AvatarImg },
     { name: 'Divesh Kumar', role: 'MSc', period: 'June 2022 - December 2022', img: DiveshImg },
 ];

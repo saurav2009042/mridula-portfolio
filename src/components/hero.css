@@ -1,103 +1,147 @@
 .hero {
-    width: 100%;
-    height: 100vh;
-    position: relative;
-    background-image: url('../assets/mridula1.jpg'); /* your background */
-    background-size: cover;
-    background-position: left center;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    color: #fff;
-    overflow: hidden;
-  }
-  
-  .hero-overlay {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.4); /* subtle dark overlay */
-    z-index: 1;
-  }
-  
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-image: url('../assets/mridula1.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: #fff;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  padding: 0 5%;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.2rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.hero-bio {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.hero-info p a {
+  color: #fff;
+  text-decoration: none;
+}
+.hero-info p a:hover {
+  color: #ffd700;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  z-index: 2;
+}
+
+.social-links a {
+  font-size: 1.8rem;
+  color: #fff;
+  opacity: 0;
+  transition: color 0.3s, transform 0.3s;
+}
+.social-links a:hover {
+  color: #ffd700;
+  transform: translateY(-3px);
+}
+
+.scroll-down {
+  font-size: 2rem;
+  cursor: pointer;
+  animation: bounce 1.5s infinite;
+}
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+/* Hero Call */
+.hero-call-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  color: #1a3d7c;
+  font-size: 1.2rem;
+  font-weight: 600;
+  overflow: hidden;
+  white-space: nowrap;
+  pointer-events: auto;
+  z-index: 5;
+  box-sizing: border-box;
+  padding: 1rem 0;
+}
+
+.hero-call-text {
+  display: inline-block;
+  padding-left: 100%; /* start outside screen */
+  animation: scroll-text 20s linear infinite;
+}
+
+.hero-call-text:hover {
+  animation-play-state: paused; /* pause on hover */
+}
+
+.hero-call-text a {
+  color: #e53e3e;
+  text-decoration: underline;
+  margin-left: 0.2rem;
+}
+
+.hero-call-text a:hover {
+  color: #c53030;
+}
+
+@keyframes scroll-text {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+
+
+/* Responsive */
+@media(max-width: 768px) {
   .hero-content {
-    position: relative;
-    z-index: 2; /* make sure content is above overlay */
-    max-width: 500px;
-    margin-left: 5%;
+    max-width: 90%;
+    text-align: center;
+    margin: 0 auto;
   }
-  
   .hero-title {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
-    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
   }
-  
   .hero-subtitle {
-    font-size: 1.5rem;
-    font-weight: 300;
-    margin-bottom: 1rem;
+    font-size: 1.2rem;
   }
-  
-  .hero-bio {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-  }
-  
-  .hero-info p a {
-    color: #fff;
-    text-decoration: none;
-  }
-  .hero-info p a:hover {
-    color: #ffd700;
-  }
-  
   .social-links {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 2rem;
-    z-index: 2; /* ensure above overlay */
+    justify-content: center;
   }
-  
-  .social-links a {
-    font-size: 1.8rem;
-    color: #fff;
-    opacity: 0; /* start hidden for GSAP animation */
-    transition: color 0.3s, transform 0.3s;
-  }
-  
-  .social-links a:hover {
-    color: #ffd700;
-    transform: translateY(-3px);
-  }
-  
-  .scroll-down {
-    font-size: 2rem;
-    cursor: pointer;
-    animation: bounce 1.5s infinite;
-  }
-  
-  @keyframes bounce {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(10px); }
-  }
-  
-  @media(max-width: 768px) {
-    .hero-content {
-      max-width: 90%;
-      text-align: center;
-      margin: 0 auto;
-    }
-    .hero-title {
-      font-size: 2.5rem;
-    }
-    .hero-subtitle {
-      font-size: 1.2rem;
-    }
-    .social-links {
-      justify-content: center;
-    }
-  }
-  
+}

@@ -23,6 +23,7 @@ export default function Hero({ onScrollDownAnimation }) {
       });
 
       gsap.from(".scroll-down", { y: -10, opacity: 0, duration: 1, delay: 1.6, repeat: -1, yoyo: true });
+      gsap.from(".hero-call-container", { y: 20, opacity: 0, duration: 1, delay: 1.9, ease: "power3.out" });
     }, heroRef);
 
     return () => ctx.revert();
@@ -60,6 +61,13 @@ export default function Hero({ onScrollDownAnimation }) {
 
         <div className="scroll-down" onClick={handleScrollDown}>&#x2193;</div>
       </div>
+
+      <div className="hero-call-container">
+  <div className="hero-call-text">
+    I am looking for Ph.D. students and postdocs. If research on systems or wireless security excites you, send your resume to 
+    <a href="mailto:singh@cispa.de">singh@cispa.de</a>
+  </div>
+</div>
     </section>
   );
 }
